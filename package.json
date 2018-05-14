@@ -1,7 +1,7 @@
 {
   "name": "deps-walker",
   "version": "0.0.1",
-  "description": "A modules dependencies walker",
+  "description": "Walks the module dependency graph. It's highly configurable.",
   "main": "lib/index.js",
   "scripts": { },
   "repository": {
