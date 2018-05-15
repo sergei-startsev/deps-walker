@@ -1,25 +1,25 @@
 {
-  "name": "deps-walker",
-  "version": "0.0.1",
-  "description": "Walks the module dependency graph. It's highly configurable.",
-  "main": "lib/index.js",
-  "scripts": { },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sergei-startsev/deps-walker"
-  },
-  "keywords": [
-    "dependencies",
-    "walker",
-    "static analysis",
-    "graph",
-    "module",
-    "node"
-  ],
-  "author": "sergei-startsev <ai@programist.ru>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sergei-startsev/deps-walker/issues"
-  },
-  "homepage": "https://github.com/sergei-startsev/deps-walker"
+    "name": "deps-walker",
+    "version": "0.0.1",
+    "description": "Walks the module dependency graph. It's highly configurable.",
+    "main": "lib/index.js",
+    "scripts": {},
+    "repository": "https://github.com/sergei-startsev/deps-walker",
+    "keywords": [
+        "dependencies",
+        "walker",
+        "static analysis",
+        "graph",
+        "module",
+        "node"
+    ],
+    "author": "sergei-startsev <ai@programist.ru>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/sergei-startsev/deps-walker/issues"
+    },
+    "homepage": "https://github.com/sergei-startsev/deps-walker",
+    "dependencies": {
+        "mkdirp": "^0.5.1"
+    }
 }
