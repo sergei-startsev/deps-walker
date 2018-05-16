@@ -1,5 +1,7 @@
 # deps-walker
 
+[![Build Status](https://travis-ci.org/sergei-startsev/deps-walker.svg?branch=master)](https://travis-ci.org/sergei-startsev/deps-walker)
+
 ```js
 
 const walk = depsWalker({ resolve, parse, ignore, cache });
