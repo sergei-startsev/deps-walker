@@ -3,7 +3,9 @@
     "version": "0.0.1",
     "description": "Walks the module dependency graph. It's highly configurable.",
     "main": "lib/index.js",
-    "scripts": {},
+    "scripts": {
+        "lint": "eslint ./"
+    },
     "repository": "https://github.com/sergei-startsev/deps-walker",
     "keywords": [
         "dependencies",
@@ -21,5 +23,8 @@
     "homepage": "https://github.com/sergei-startsev/deps-walker",
     "dependencies": {
         "mkdirp": "^0.5.1"
+    },
+    "devDependencies": {
+        "eslint": "^4.19.1"
     }
 }
