@@ -5,7 +5,7 @@
 const walk = depsWalker({ resolve, parse, ignore, cache });
 
 await walk(entryPoints, (err, module) => {
-    if (e) {
+    if (err) {
         // logs error...
         return;
     }
