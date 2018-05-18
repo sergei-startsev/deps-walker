@@ -4,6 +4,7 @@
     "description": "Walks the module dependency graph. It's highly configurable.",
     "main": "lib/index.js",
     "scripts": {
+        "pretty": "prettier **/*.js --list-different",
         "lint": "eslint ./"
     },
     "repository": "https://github.com/sergei-startsev/deps-walker",
@@ -25,6 +26,7 @@
         "mkdirp": "^0.5.1"
     },
     "devDependencies": {
-        "eslint": "^4.19.1"
+        "eslint": "^4.19.1",
+        "prettier": "1.12.1"
     }
 }
