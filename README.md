@@ -3,17 +3,97 @@
 [![Build Status](https://travis-ci.org/sergei-startsev/deps-walker.svg?branch=master)](https://travis-ci.org/sergei-startsev/deps-walker)
 [![Build status](https://ci.appveyor.com/api/projects/status/b622r5eccu8gid1l/branch/master?svg=true)](https://ci.appveyor.com/project/sergei-startsev/deps-walker/branch/master)
 
+🔀[Graph traversal](https://en.wikipedia.org/wiki/Graph_traversal) that allows to walk through ES6/ES2015 module dependency graph for further static analysis. The traversal algorithm is classified as [Breadth-first search (BFS)](https://en.wikipedia.org/wiki/Breadth-first_search).
+
+## Install
+
+`$ npm install deps-walker`
+
+## Usage
+
+Here is an example of an entry point module (`entry.js`) with its dependencies, which in turn depend on their dependencies, which in turn depend on...
+
 ```js
+//------ entry.js ------
+import a from './a.js';
+import b from './b.js';
 
-const walk = depsWalker({ resolve, parse, ignore, cache });
+//------ a.js ------
+import b from './b.js';
+import c from './c.js';
+import d from './d.js';
 
-await walk(entryPoints, (err, module) => {
-    if (err) {
-        // logs error...
-        return;
-    }
-    const { filePath, dependencies } = module;
-    // e.g. builds dependency graph
-});
+//------ c.js ------
+import d from './d.js';
+
+//------ d.js ------
+import b from './b.js';
+```
+
+In other words:
 
 ```
+entry.js -> a.js
+entry.js -> b.js
+a.js -> b.js
+a.js -> c.js
+a.js -> d.js
+c.js -> d.js
+d.js -> b.js
+```
+
+<p align='center'>
+  <img alt='dependency graph' src='./dependency-graph.png'>
+</p>
+
+`deps-walker` is used to traverse the dependency graph:
+
+```js
+const walk = require('deps-walker')();
+
+walk('entry.js', (err, data) => {
+  if (err) {
+    // catch any errors...
+    return;
+  }
+  const { filePath, dependencies } = data;
+  // e.g. build dependency graph
+});
+```
+
+The dependencies are traversed in the following order:
+
+<p align="center">
+  <img alt='Breadth-first search traverse' src="./bfs.png">
+</p>
+
+#### Async/await API
+
+`deps-walker` support async/await API, it can be used to await traverse completion:
+
+```js
+async function traverse() {
+  await walk('entry.js', (err, data) => {/*...*/});
+  console.log('Traverse is completed');
+}
+```
+
+#### Multiple entry points
+
+`deps-walker` supports multiple roots:
+
+```js
+walk(['entry1.js', 'entry2.js', 'entry3.js'], (err, data) => {/*...*/});
+```
+
+### Parsers
+
+### Resolvers
+
+### Ignore
+
+### Cache
+
+## License
+
+MIT
