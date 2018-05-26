@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/sergei-startsev/deps-walker.svg?branch=master)](https://travis-ci.org/sergei-startsev/deps-walker)
 [![Build status](https://ci.appveyor.com/api/projects/status/b622r5eccu8gid1l/branch/master?svg=true)](https://ci.appveyor.com/project/sergei-startsev/deps-walker/branch/master)
 
-🔀[Graph traversal](https://en.wikipedia.org/wiki/Graph_traversal) that allows to walk through ES6/ES2015 module dependency graph for further static analysis. The traversal algorithm is classified as [Breadth-first search (BFS)](https://en.wikipedia.org/wiki/Breadth-first_search).
+[Graph traversal](https://en.wikipedia.org/wiki/Graph_traversal) to walk through ES6/ES2015 module dependency graph for further static analysis. The traversal algorithm is classified as [Breadth-first search (BFS)](https://en.wikipedia.org/wiki/Breadth-first_search).
 
 ## Install
 
@@ -11,7 +11,7 @@
 
 ## Usage
 
-Here is an example of an entry point module (`entry.js`) with its dependencies, which in turn depend on their dependencies, which in turn depend on...
+Here is an example of an entry point module `entry.js` with its dependencies, which in turn depend on their dependencies, which in turn depend on...
 
 ```js
 //------ entry.js ------
@@ -43,10 +43,10 @@ d.js -> b.js
 ```
 
 <p align='center'>
-  <img alt='dependency graph' src='./dependency-graph.png'>
+  <img alt='dependency graph'  width='500' height='300' src='./dependency-graph.png'>
 </p>
 
-`deps-walker` is used to traverse the dependency graph:
+`deps-walker` is used to traverse `entry.js` dependency graph:
 
 ```js
 const walk = require('deps-walker')();
@@ -64,7 +64,7 @@ walk('entry.js', (err, data) => {
 The dependencies are traversed in the following order:
 
 <p align="center">
-  <img alt='Breadth-first search traverse' src="./bfs.png">
+  <img alt='Breadth-first search traverse' width='500' height='300' src="./bfs.png">
 </p>
 
 #### Async/await API
@@ -96,4 +96,4 @@ walk(['entry1.js', 'entry2.js', 'entry3.js'], (err, data) => {/*...*/});
 
 ## License
 
-MIT
+[MIT](https://opensource.org/licenses/MIT)
