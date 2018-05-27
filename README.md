@@ -88,13 +88,13 @@ walk(['entry1.js', 'entry2.js', 'entry3.js'], (err, data) => {/*...*/});
 
 ### Parsers
 
-`deps-walker` uses [babylon](https://github.com/babel/babel/tree/master/packages/babel-parser) parser with `sourceType: module` option by default, but you can customize any of [default options](https://github.com/babel/babel/tree/master/packages/babel-parser#options):
+`deps-walker` uses [babylon](https://www.npmjs.com/package/babylon) parser with `sourceType: module` option by default, but you can customize any of [default options](https://github.com/babel/babel/tree/master/packages/babel-parser#options):
 
 ```js
-const parse = require('deps-walker/lib/parsers/babylon');
+const babylonParse = require('deps-walker/lib/parsers/babylon');
 const walk = require('deps-walker')({
   parse: (...args) =>
-    parse(...args, {
+    babylonParse(...args, {
       // options
       sourceType: module,
       plugins: ['jsx', 'flow']
@@ -115,6 +115,32 @@ const walk = require('deps-walker')({
 ```
 
 ### Resolvers
+It is not always obvious where `import x from 'module'` should look to find the file behind module, it depends on module resolution algorithms, which are specific for module bundlers, module syntax specs, etc.. `deps-walker` uses [resolve](https://www.npmjs.com/package/resolve) package, which implements NodeJS module resolution behavior. You may configure NodeJS `resolve` via available options:
+
+```js
+const nodejsResolve = require('deps-walker/lib/resolvers/nodejs');
+const walk = require('deps-walker')({
+  resolve: (...args) =>
+    nodejsResolve(...args, {
+      // options
+      extensions: [ '.js' ]
+      paths: ['rootDir'],
+      moduleDirectory: 'node_modules'
+    })
+});
+
+walk('entry.js', (err, data) => {});
+```
+
+You can also use other module resolution algorithms:
+
+```js
+const walk = require('deps-walker')({
+  resolve: (filePath, contextPath) => {
+    // resolve implementation
+  }
+});
+```
 
 ### Ignore
 
