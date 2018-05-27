@@ -100,8 +100,6 @@ const walk = require('deps-walker')({
       plugins: ['jsx', 'flow']
     })
 });
-
-walk('entry.js', (err, data) => {});
 ```
 
 or specify your own `parse` implementation:
@@ -128,8 +126,6 @@ const walk = require('deps-walker')({
       moduleDirectory: 'node_modules'
     })
 });
-
-walk('entry.js', (err, data) => {});
 ```
 
 You can also use other module resolution algorithms:
@@ -143,8 +139,26 @@ const walk = require('deps-walker')({
 ```
 
 ### Ignore
+You may break traversal for some dependencies by specifying `ignore` function:
+
+```js
+const walk = require('deps-walker')({
+  // ignore node_modules
+  ignore: (filePath) => /node_modules/.test(filePath)
+});
+```
 
 ### Cache
+Module parsing and resolving can be resource intensive operation (CPU, I/O), cache allows to speed up traversal re-run:
+
+```js
+const cache = require('deps-walker/cache');
+const walk =  require('deps-walker')({ cache });
+//...
+await cache.load('./cache.json');
+await walk('entry.js', (err, data) => {/*...*/});
+await cache.save('./cache.json');
+```
 
 ## License
 
