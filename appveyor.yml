@@ -4,6 +4,7 @@ environment:
     # node.js
     - nodejs_version: "9"
     - nodejs_version: "8"
+    - nodejs_version: "8"
 
 cache:
  - "%LOCALAPPDATA%\\Yarn"

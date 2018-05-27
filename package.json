@@ -1,35 +1,38 @@
 {
-    "name": "deps-walker",
-    "version": "0.0.1",
-    "description": "Walks the module dependency graph. It's highly configurable.",
-    "main": "lib/index.js",
-    "scripts": {
-        "pretty": "prettier ./lib/**/*.js --list-different",
-        "lint": "eslint ./"
-    },
-    "repository": "https://github.com/sergei-startsev/deps-walker",
-    "keywords": [
-        "dependencies",
-        "walker",
-        "static analysis",
-        "graph",
-        "module",
-        "node"
-    ],
-    "author": "sergei-startsev <ai@programist.ru>",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/sergei-startsev/deps-walker/issues"
-    },
-    "homepage": "https://github.com/sergei-startsev/deps-walker",
-    "dependencies": {
-        "babylon": "^6.18.0",
-        "debug": "^3.1.0",
-        "mkdirp": "^0.5.1",
-        "resolve": "^1.7.1"
-    },
-    "devDependencies": {
-        "eslint": "^4.19.1",
-        "prettier": "1.12.1"
-    }
+  "name": "deps-walker",
+  "version": "0.0.1",
+  "description": "Walks the module dependency graph. It's highly configurable.",
+  "main": "lib/index.js",
+  "scripts": {
+    "pretty": "prettier ./lib/**/*.js --list-different",
+    "lint": "eslint ./"
+  },
+  "repository": "https://github.com/sergei-startsev/deps-walker",
+  "keywords": [
+    "dependencies",
+    "walker",
+    "static analysis",
+    "graph",
+    "module",
+    "node"
+  ],
+  "author": "sergei-startsev <ai@programist.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sergei-startsev/deps-walker/issues"
+  },
+  "homepage": "https://github.com/sergei-startsev/deps-walker",
+  "dependencies": {
+    "babylon": "^6.18.0",
+    "debug": "^3.1.0",
+    "mkdirp": "^0.5.1",
+    "resolve": "^1.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "prettier": "1.12.1"
+  },
+  "engines": {
+    "node": ">=7.6.0"
+  }
 }
