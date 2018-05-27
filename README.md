@@ -57,7 +57,7 @@ walk('entry.js', (err, data) => {
     return;
   }
   const { filePath, dependencies } = data;
-  // e.g. build dependency graph
+  // analyse module dependencies
 });
 ```
 
@@ -87,6 +87,32 @@ walk(['entry1.js', 'entry2.js', 'entry3.js'], (err, data) => {/*...*/});
 ```
 
 ### Parsers
+
+`deps-walker` uses [babylon](https://github.com/babel/babel/tree/master/packages/babel-parser) parser with `sourceType: module` option by default, but you can customize any of [default options](https://github.com/babel/babel/tree/master/packages/babel-parser#options):
+
+```js
+const parse = require('deps-walker/lib/parsers/babylon');
+const walk = require('deps-walker')({
+  parse: (...args) =>
+    parse(...args, {
+      // options
+      sourceType: module,
+      plugins: ['jsx', 'flow']
+    })
+});
+
+walk('entry.js', (err, data) => {});
+```
+
+or specify your own `parse` implementation:
+
+```js
+const walk = require('deps-walker')({
+  parse: (code, filePath) => {
+    // parse implementation
+  }
+});
+```
 
 ### Resolvers
 
