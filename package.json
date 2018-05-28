@@ -9,12 +9,14 @@
   },
   "repository": "https://github.com/sergei-startsev/deps-walker",
   "keywords": [
-    "dependencies",
-    "walker",
-    "static analysis",
-    "graph",
-    "module",
-    "node"
+    "deps-walker",
+    "graph-traversal",
+    "traverse",
+    "dependency-graph",
+    "static-analysis",
+    "es6",
+    "es2015",
+    "imports"
   ],
   "author": "sergei-startsev <ai@programist.ru>",
   "license": "MIT",

@@ -43,7 +43,7 @@ d.js -> b.js
 ```
 
 <p align='center'>
-  <img alt='dependency graph'  width='500' height='300' src='./dependency-graph.png'>
+  <img alt='dependency graph'  width='400' src='./dependency-graph.png'>
 </p>
 
 `deps-walker` is used to traverse `entry.js` dependency graph:
@@ -64,7 +64,7 @@ walk('entry.js', (err, data) => {
 The dependencies are traversed in the following order:
 
 <p align="center">
-  <img alt='Breadth-first search traverse' width='500' height='300' src="./bfs.png">
+  <img alt='Breadth-first search traverse' width='400' src="./bfs.png">
 </p>
 
 #### Async/await API
@@ -88,7 +88,7 @@ walk(['entry1.js', 'entry2.js', 'entry3.js'], (err, data) => {/*...*/});
 
 ### Parsers
 
-`deps-walker` uses [babylon](https://www.npmjs.com/package/babylon) parser with `sourceType: module` option by default, but you can customize any of [default options](https://github.com/babel/babel/tree/master/packages/babel-parser#options):
+`deps-walker` uses [babylon](https://www.npmjs.com/package/babylon) parser with `sourceType: 'module'` option by default, but you can customize any of [default options](https://github.com/babel/babel/tree/master/packages/babel-parser#options):
 
 ```js
 const babylonParse = require('deps-walker/lib/parsers/babylon');
@@ -96,7 +96,7 @@ const walk = require('deps-walker')({
   parse: (...args) =>
     babylonParse(...args, {
       // options
-      sourceType: module,
+      sourceType: 'module',
       plugins: ['jsx', 'flow']
     })
 });
