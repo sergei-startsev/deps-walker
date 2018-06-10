@@ -149,7 +149,7 @@ const walk = require('deps-walker')({
 ```
 
 ### Cache
-Module parsing and resolving can be resource intensive operation (CPU, I/O), cache allows to speed up traversal re-run:
+Module parsing and resolving can be resource intensive operation (CPU, I/O), cache allows you to speed up consecutive runs:
 
 ```js
 const cache = require('deps-walker/cache');
