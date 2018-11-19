@@ -27,6 +27,7 @@
   "dependencies": {
     "babylon": "^6.18.0",
     "debug": "^3.1.0",
+    "graceful-fs": "^4.1.15",
     "mkdirp": "^0.5.1",
     "resolve": "^1.7.1"
   },
