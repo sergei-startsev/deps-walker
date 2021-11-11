@@ -92,13 +92,13 @@ walk(['entry1.js', 'entry2.js', 'entry3.js'], (err, data) => {
 
 ### Parsers
 
-`deps-walker` uses [babylon](https://www.npmjs.com/package/babylon) parser with `sourceType: 'module'` option by default, but you can customize any of [default options](https://github.com/babel/babel/tree/master/packages/babel-parser#options):
+`deps-walker` uses [@babel/parser](https://www.npmjs.com/package/@babel/parser) with `sourceType: 'module'` option by default. You can specify any other available [options](https://babeljs.io/docs/en/babel-parser.html#options):
 
 ```js
-const babylonParse = require('deps-walker/lib/parsers/babylon');
+const babelParse = require('deps-walker/lib/parsers/babel');
 const walk = require('deps-walker')({
   parse: (...args) =>
-    babylonParse(...args, {
+      babelParse(...args, {
       // options
       sourceType: 'module',
       plugins: ['jsx', 'flow']
