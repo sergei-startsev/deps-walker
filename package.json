@@ -28,7 +28,7 @@
   "dependencies": {
     "@babel/parser": "^7.21.4",
     "debug": "^4.3.4",
-    "graceful-fs": "^4.2.8",
+    "graceful-fs": "^4.2.11",
     "mkdirp": "^1.0.4",
     "resolve": "^1.20.0"
   },
