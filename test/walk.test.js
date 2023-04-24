@@ -12,7 +12,7 @@ describe('walker', function () {
     const walk = depsWalker();
 
     const graph = await walk(
-      path.resolve('./examples/base/entry.js'),
+      path.join(__dirname, 'examples/base/entry.js'),
       () => {}
     );
 
@@ -29,11 +29,12 @@ describe('walker', function () {
 
     const graph = await walk(
       [
-        path.resolve('./examples/base/a.js'),
-        path.resolve('./examples/base/entry.js')
+        path.join(__dirname, 'examples/base/a.js'),
+        path.join(__dirname, 'examples/base/entry.js')
       ],
       () => {}
     );
+    
     const expected = graph.map(({ filePath, dependencies }) => {
       filePath = convertToRelative(filePath);
       dependencies = dependencies.map(convertToRelative);
