@@ -1,0 +1,40 @@
+name: Pull Request
+on:
+  pull_request:
+    paths-ignore:
+      - '.github/workflows/**'
+      - '!.github/workflows/PullRequest.yml'
+
+
+permissions:
+  actions: write
+  checks: write
+  pull-requests: write
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install Yarn
+        run: npm install -g yarn
+        shell: bash
+
+      - name: Install Dependencies
+        run: yarn --cwd install --frozen-lockfile
+        shell: bash
+
+      - name: Lint
+        run: yarn lint
+        shell: bash
+
+      - name: Test
+        run: yarn test
+        shell: bash
