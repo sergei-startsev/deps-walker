@@ -34,7 +34,7 @@ describe('walker', function () {
       ],
       () => {}
     );
-    
+
     const expected = graph.map(({ filePath, dependencies }) => {
       filePath = convertToRelative(filePath);
       dependencies = dependencies.map(convertToRelative);

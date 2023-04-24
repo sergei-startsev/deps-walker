@@ -18,11 +18,11 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install yarn
+      - name: Install Yarn
         run: npm install -g yarn
         shell: bash
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: yarn --cwd install --frozen-lockfile
         shell: bash
 
@@ -34,11 +34,12 @@ jobs:
         run: yarn test
         shell: bash
 
-      - name: Install npm
+      - name: Install NPM
         run: npm install -g npm
         shell: bash
 
-#      - run: npm publish --provenance --access public
-#        env:
-#          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-#        shell: bash
+      - name: Publish Package to NPM
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        shell: bash
