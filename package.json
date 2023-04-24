@@ -20,7 +20,15 @@
     "es2015",
     "imports"
   ],
-  "author": "sergei-startsev <ai@programist.ru>",
+  "engines": {
+    "node": ">=16.0.0",
+    "yarn": "^1.22"
+  },
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "author": "sergei-startsev",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sergei-startsev/deps-walker/issues"
@@ -37,8 +45,5 @@
     "eslint": "^8.39.0",
     "jest": "^29.5.0",
     "prettier": "^2.8.8"
-  },
-  "engines": {
-    "node": ">=8.0.0"
   }
 }
