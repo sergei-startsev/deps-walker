@@ -1,6 +1,6 @@
 # deps-walker
 
-[Graph traversal](https://en.wikipedia.org/wiki/Graph_traversal) to walk through ES6/ES2015 module dependency graph for further static analysis. The traversal algorithm is classified as [Breadth-first search (BFS)](https://en.wikipedia.org/wiki/Breadth-first_search).
+[Graph traversal](https://en.wikipedia.org/wiki/Graph_traversal) to walk through ESM dependency graph for further static analysis. The traversal algorithm is classified as [Breadth-first search (BFS)](https://en.wikipedia.org/wiki/Breadth-first_search).
 
 ## Install
 
