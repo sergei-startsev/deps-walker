@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`walker should traverse an entry with default configuration 1`] = `
+[
+  {
+    "dependencies": [
+      "./examples/base/a.js",
+      "./examples/base/b.js",
+    ],
+    "filePath": "./examples/base/entry.js",
+  },
+  {
+    "dependencies": [
+      "./examples/base/b.js",
+      "./examples/base/c.js",
+      "./examples/base/d.js",
+    ],
+    "filePath": "./examples/base/a.js",
+  },
+  {
+    "dependencies": [
+      "./examples/base/d.js",
+    ],
+    "filePath": "./examples/base/c.js",
+  },
+  {
+    "dependencies": [
+      "./examples/base/b.js",
+    ],
+    "filePath": "./examples/base/d.js",
+  },
+  {
+    "dependencies": [],
+    "filePath": "./examples/base/b.js",
+  },
+]
+`;
+
+exports[`walker should traverse several entries with default configuration 1`] = `
+[
+  {
+    "dependencies": [
+      "./examples/base/b.js",
+      "./examples/base/c.js",
+      "./examples/base/d.js",
+    ],
+    "filePath": "./examples/base/a.js",
+  },
+  {
+    "dependencies": [
+      "./examples/base/d.js",
+    ],
+    "filePath": "./examples/base/c.js",
+  },
+  {
+    "dependencies": [
+      "./examples/base/b.js",
+    ],
+    "filePath": "./examples/base/d.js",
+  },
+  {
+    "dependencies": [
+      "./examples/base/a.js",
+      "./examples/base/b.js",
+    ],
+    "filePath": "./examples/base/entry.js",
+  },
+  {
+    "dependencies": [],
+    "filePath": "./examples/base/b.js",
+  },
+]
+`;
