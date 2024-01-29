@@ -7,6 +7,9 @@ const convertToRelative = filePath =>
     .replace(path.resolve(__dirname, '..').toLowerCase(), '.')
     .replace(/\\/g, '/');
 
+const sort = graph =>
+  graph.sort((a, b) => a.filePath.localeCompare(b.filePath));
+
 describe('walker', function () {
   it('should traverse an entry with default configuration', async function () {
     const walk = depsWalker();
@@ -16,11 +19,13 @@ describe('walker', function () {
       () => {}
     );
 
-    const expected = graph.map(({ filePath, dependencies }) => {
-      filePath = convertToRelative(filePath);
-      dependencies = dependencies.map(convertToRelative);
-      return { filePath, dependencies };
-    });
+    const expected = sort(
+      graph.map(({ filePath, dependencies }) => {
+        filePath = convertToRelative(filePath);
+        dependencies = dependencies.map(convertToRelative);
+        return { filePath, dependencies };
+      })
+    );
     expect(expected).toMatchSnapshot();
   });
 
@@ -35,11 +40,13 @@ describe('walker', function () {
       () => {}
     );
 
-    const expected = graph.map(({ filePath, dependencies }) => {
-      filePath = convertToRelative(filePath);
-      dependencies = dependencies.map(convertToRelative);
-      return { filePath, dependencies };
-    });
+    const expected = sort(
+      graph.map(({ filePath, dependencies }) => {
+        filePath = convertToRelative(filePath);
+        dependencies = dependencies.map(convertToRelative);
+        return { filePath, dependencies };
+      })
+    );
     expect(expected).toMatchSnapshot();
   });
 });
