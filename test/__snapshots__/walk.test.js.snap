@@ -47,10 +47,6 @@ exports[`walker should traverse several entries with default configuration 1`] =
     "filePath": "./test/examples/base/a.js",
   },
   {
-    "dependencies": [],
-    "filePath": "./test/examples/base/b.js",
-  },
-  {
     "dependencies": [
       "./test/examples/base/d.js",
     ],
@@ -68,6 +64,10 @@ exports[`walker should traverse several entries with default configuration 1`] =
       "./test/examples/base/b.js",
     ],
     "filePath": "./test/examples/base/entry.js",
+  },
+  {
+    "dependencies": [],
+    "filePath": "./test/examples/base/b.js",
   },
 ]
 `;
